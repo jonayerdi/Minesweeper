@@ -7,48 +7,41 @@
 		<link rel="stylesheet" href="css/styles.css">
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
 	</head>
 	<body>
 		<div class="container">
-			<nav class="navbar navbar-default navbar-fixed-top">
-				<div class="container">
-					<h1>Title</h1>
+			<div id="settings">
+				<div id="settings.mode" class="row">
+					<div class="col-md-3">
+						<button id="easy" type="button" class="col-xs-11 btn btn-success mode-btn depressed">Easy</button>
+					</div>
+					<div class="col-md-3">
+						<button id="medium" type="button" class="col-xs-11 btn btn-warning mode-btn depressed">Medium</button>
+					</div>
+					<div class="col-md-3">
+						<button id="hard" type="button" class="col-xs-11 btn btn-danger mode-btn depressed">Hard</button>
+					</div>
+					<div class="col-md-3">
+						<button id="custom" type="button" class="col-xs-11 btn btn-primary mode-btn depressed">Custom</button>
+					</div>				
 				</div>
-			</nav>
-			<div class="row">
-				<canvas  id="canvas"></canvas>
-			</div>
-			<div class="row">
-				<div class="col-sm-1">
-					<kbd>&larr;</kbd>
-				</div>
-				<div class="col-sm-11">
-					<p class="alert alert-info">Left Arrow</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-1">
-					<kbd>&rarr;</kbd>
-				</div>
-				<div class="col-sm-11">
-					<p class="alert alert-info">Right Arrow</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-1">
-					<kbd>&uarr;</kbd>
-				</div>
-				<div class="col-sm-11">
-					<p class="alert alert-info">Up Arrow</p>
+				<div id="settings.values" class="row">
+					<div class="col-md-4 form-inline">
+						<label>Width:</label>
+						<input id="lbWidth" type="number" min=8 class="form-control config-input">
+					</div>
+					<div class="col-md-4 form-inline">
+						<label>Height:</label>
+						<input id="lbHeight" type="number" min=8 class="form-control config-input">
+					</div>
+					<div class="col-md-4 form-inline">
+						<label>Mines:</label>
+						<input id="lbMines" type="number" min=0 class="form-control config-input">
+					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-sm-1">
-					<kbd>&darr;</kbd>
-				</div>
-				<div class="col-sm-11">
-					<p class="alert alert-info">Down Arrow</p>
-				</div>
+			<div id="game">
 			</div>
 		</div>
 	</body>

@@ -1,14 +1,40 @@
 body { 
-  padding-top: 70px; 
+	padding-top: 30px; 
+	background-color: #CCCCFF;
 }
-canvas {
-  background-color: #f4f9fb; 
-  width: 100%;
-  height: 100%;
-  height: auto;
-  border: 2px solid #8080ff;
-  border-radius: 10px;
+
+@keyframes bigger {
+    from {font-size: 24px;}
+    to {font-size: 32px;}
 }
-kbd {
-  font-size: 38px
+
+@keyframes smaller {
+    from {font-size: 32px;}
+    to {font-size: 24px;}
 }
+
+.row {
+	margin: 20px 0px 50px 0px;
+}
+
+.mode-btn {
+	font-size: 24px;
+	color: black;
+	text-shadow: 0px 0px 10px #FFF;
+}
+
+.pressed {
+	font-size: 32px;
+	animation-name: bigger;
+	animation-duration: 700ms;
+	color: white;
+	text-shadow: 0px 0px 10px #000;
+}
+
+.depressed {
+	font-size: 24px;
+	animation-name: smaller;
+	animation-duration: 700ms;
+}
+
+
