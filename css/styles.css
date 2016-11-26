@@ -3,6 +3,19 @@ body {
 	background-color: #CCCCFF;
 }
 
+#top {
+	text-align:center;
+	margin: 0px 0px 30px 0px;
+}
+
+#minesweeper-top {
+	margin-top: 100%;
+}
+
+#minesweeper {
+	text-align: center;
+}
+
 @keyframes bigger {
     from {font-size: 24px;}
     to {font-size: 32px;}
@@ -11,6 +24,27 @@ body {
 @keyframes smaller {
     from {font-size: 32px;}
     to {font-size: 24px;}
+}
+
+button.btn-play {
+	background: #CC55FF;
+	color: white;
+	font-size: 50px;
+	min-width: 100%;
+	border-radius: 12px;
+	border: #9922CC;
+	border-style: solid;
+	border-width: 3px;
+	border-bottom-width: 8px;
+}
+
+button.btn-play:hover {
+	text-shadow: 0px 0px 10px #FFF;
+}
+
+button.btn-play:active {
+	background: #AA33DD;
+	text-shadow: 0px 0px 10px #FFF;
 }
 
 .row {
@@ -37,4 +71,20 @@ body {
 	animation-duration: 700ms;
 }
 
+table {
+	overflow-x:auto;
+	margin: 0 auto;
+}
 
+th, td  {
+	border: 3px solid #777777;
+	background: #CCCCCC;
+}
+
+th, td:hover  {
+	background-color: #AAAAAA
+}
+
+th, td:active  {
+	background-color: #AAAAFF
+}

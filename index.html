@@ -11,6 +11,9 @@
 	</head>
 	<body>
 		<div class="container">
+			<div id="top" class="row">
+				<h1 id="title">Minesweeper</h1>
+			</div>
 			<div id="settings">
 				<div id="settings.mode" class="row">
 					<div class="col-md-3">
@@ -29,11 +32,11 @@
 				<div id="settings.values" class="row">
 					<div class="col-md-4 form-inline">
 						<label>Width:</label>
-						<input id="lbWidth" type="number" min=8 class="form-control config-input">
+						<input id="lbWidth" type="number" class="form-control config-input">
 					</div>
 					<div class="col-md-4 form-inline">
 						<label>Height:</label>
-						<input id="lbHeight" type="number" min=8 class="form-control config-input">
+						<input id="lbHeight" type="number" class="form-control config-input">
 					</div>
 					<div class="col-md-4 form-inline">
 						<label>Mines:</label>
@@ -41,7 +44,15 @@
 					</div>
 				</div>
 			</div>
-			<div id="game">
+			<div id="play" class="row">
+				<a href="#minesweeper-top"><button class="col-md-12 btn-play">Start</button></a>
+			</div>
+			<div id="minesweeper-top">
+			</div>
+			<div id="minesweeper" class="row col-xs-12">
+			</div>
+			<div id="play" class="row">
+				<a href="#top"><button class="col-md-12 btn-play">Back to top</button></a>
 			</div>
 		</div>
 	</body>

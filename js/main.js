@@ -1,9 +1,11 @@
 
-var currentMode;
+var $minesweeper;
 
 var $lbWidth;
 var $lbHeight;
 var $lbMines;
+
+var currentMode;
 	
 var width;
 var height;
@@ -54,26 +56,63 @@ function applySettings(mode) {
 	$lbMines.prop('readOnly', mode!='custom')
 }
 
+function checkSettings() {
+	if($lbWidth.val()<8) {$lbWidth.val(8);}
+	else if($lbWidth.val()>32) {$lbWidth.val(32);}
+	if($lbHeight.val()<8) {$lbHeight.val(8);}
+	else if($lbHeight.val()>32) {$lbHeight.val(32);}
+	width = parseInt($lbWidth.val());
+	height = parseInt($lbHeight.val());
+	if($lbMines.val()<1) {$lbMines.val(1);}
+	else if($lbMines.val()>width*height) {$lbMines.val(width*height);}
+	mines = $lbMines.val();
+	customWidth = width;
+	customHeight = height;
+	customMines = mines;
+	buildBoard();
+}
+
 function buildBoard() {
-	
+	var device_width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+	var device_height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
+	var size = (device_width > device_height) ? device_height/(parseInt(height)+5) : device_width/(parseInt(width)+1);
+	$minesweeper.empty();
+	$minesweeper.append("<table class=\"board-table\"></table>");
+	var $board_table = $(".board-table");
+	for(var i = 0 ; i < height ; i++) {
+		$board_table.append("<tr id=\"row"+i+"\" height='"+size+"' width='"+size+"'></tr>");
+		var $board_row = $("#row"+i);
+		for(var j = 0 ; j < width ; j++) {
+			$board_row.append("<td id=\"s"+i+"."+j+"\" height='"+size+"' width='"+size+"'></td>");
+		}
+	}
 }
 
 $(document).ready(function() {
+	$minesweeper = $('#minesweeper');
 	$lbWidth = $('#lbWidth');
 	$lbHeight = $('#lbHeight');
 	$lbMines = $('#lbMines');
 	applySettings('easy');
+	buildBoard();
     $('.mode-btn').click(function() {
     	applySettings($(this).attr('id'));
 		buildBoard();
     });
 	$('.config-input').change(function() {
-		width = $lbWidth.val();
-		height = $lbHeight.val();
-		mines = $lbMines.val();
-		customWidth = width;
-		customHeight = height;
-		customMines = mines;
-		buildBoard();
+		checkSettings();
+	});
+	$("a[href^='#']").on('click', function(e) {
+		e.preventDefault();
+		var hash = this.hash;
+		$('html, body').animate({
+			scrollTop: $(hash).offset().top
+        }, 600, function(){
+			
+		});
 	});
 });
+
+window.onresize = function(event) {
+    buildBoard();
+};
