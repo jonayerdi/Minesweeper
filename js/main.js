@@ -83,25 +83,38 @@ function buildBoard() {
 		$board_table.append("<tr id=\"row"+i+"\" height='"+size+"' width='"+size+"'></tr>");
 		var $board_row = $("#row"+i);
 		for(var j = 0 ; j < width ; j++) {
-			$board_row.append("<td id=\"s"+i+"."+j+"\" height='"+size+"' width='"+size+"'></td>");
+			$board_row.append("<td onclick=\"discover("+i+","+j+")\" id=\"s"+i+"-"+j+"\" height='"+size
+			+"' width='"+size+"' class='undiscovered'></td>");
 		}
 	}
+	initMines(height,width,mines);
 }
 
 $(document).ready(function() {
+	//Get jQuery variables
 	$minesweeper = $('#minesweeper');
 	$lbWidth = $('#lbWidth');
 	$lbHeight = $('#lbHeight');
 	$lbMines = $('#lbMines');
 	applySettings('easy');
 	buildBoard();
+	//On mode change
     $('.mode-btn').click(function() {
     	applySettings($(this).attr('id'));
 		buildBoard();
     });
+	//On custom settings change
 	$('.config-input').change(function() {
 		checkSettings();
 	});
+	//
+	$(document).on("contextmenu", ".undiscovered", function(e){
+		sq = $(this);
+		if(sq.html()=='') sq.html('X');
+		else sq.html('');
+		return false;
+	});
+	//Smooth scroll for anchor links
 	$("a[href^='#']").on('click', function(e) {
 		e.preventDefault();
 		var hash = this.hash;
@@ -113,6 +126,9 @@ $(document).ready(function() {
 	});
 });
 
+//Resize board on window resize
+/*
 window.onresize = function(event) {
     buildBoard();
 };
+*/

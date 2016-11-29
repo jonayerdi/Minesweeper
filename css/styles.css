@@ -9,11 +9,16 @@ body {
 }
 
 #minesweeper-top {
-	margin-top: 100%;
+	margin-top: 300%;
 }
 
 #minesweeper {
 	text-align: center;
+}
+
+@keyframes explode {
+    from {background: #EEEEEE; color: black;}
+    to {background: #FF3030; color: white;}
 }
 
 @keyframes bigger {
@@ -71,20 +76,32 @@ button.btn-play:active {
 	animation-duration: 700ms;
 }
 
+.boom {
+	background: #FF3030;
+	color: white;
+	animation-name: explode;
+	animation-duration: 700ms;
+}
+
 table {
 	overflow-x:auto;
 	margin: 0 auto;
 }
 
 th, td  {
-	border: 3px solid #777777;
+	border: 1px solid #777777;
+	background: #EEEEEE;
+}
+
+th, td.undiscovered  {
+	border: 1px solid #777777;
 	background: #CCCCCC;
 }
 
-th, td:hover  {
+th, td.undiscovered:hover  {
 	background-color: #AAAAAA
 }
 
-th, td:active  {
+th, td.undiscovered:active  {
 	background-color: #AAAAFF
 }
