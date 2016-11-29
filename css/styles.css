@@ -8,10 +8,6 @@ body {
 	margin: 0px 0px 30px 0px;
 }
 
-#minesweeper-top {
-	margin-top: 300%;
-}
-
 #minesweeper {
 	text-align: center;
 }
@@ -92,9 +88,11 @@ th, td  {
 	border: 1px solid #777777;
 	background: #EEEEEE;
 }
+th, td.disabled  {
+	background: #CCCCCC;
+}
 
 th, td.undiscovered  {
-	border: 1px solid #777777;
 	background: #CCCCCC;
 }
 
