@@ -108,7 +108,7 @@ function buildBoard() {
 		$board_table.append("<tr id=\"row"+i+"\" height='"+size+"' width='"+size+"'></tr>");
 		var $board_row = $("#row"+i);
 		for(var j = 0 ; j < width ; j++) {
-			$board_row.append("<td onclick=\"discover("+i+","+j+")\" id=\"s"+i+"-"+j+"\" height='"+size
+			$board_row.append("<td onclick=\"discover_user("+i+","+j+")\" id=\"s"+i+"-"+j+"\" height='"+size
 			+"' width='"+size+"' class='undiscovered' style=\"font-size:"+size/2+"px;\"></td>");
 		}
 	}
@@ -170,5 +170,11 @@ function discover(x,y) {
 			}
 		}
 	}
+}
+
+//Discovers the square when clicked by the user
+function discover_user(x,y) {
+	$square = $('#s'+x+"-"+y);
+	if($square.html() != 'X') discover(x,y);
 }
 
