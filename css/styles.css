@@ -58,6 +58,10 @@ body {
 	animation-duration: 700ms;
 }
 
+.not-boom {
+	background: #55DD55;
+}
+
 table {
 	overflow-x:auto;
 	margin: 0 auto;

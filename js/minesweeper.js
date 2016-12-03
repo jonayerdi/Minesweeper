@@ -17,6 +17,7 @@ var customMines = 10;
 
 var mineLocations = [];
 var discovered = 0;
+var discovered_goal = 0;
 
 var $mines_left;
 var minesLeft = 0;
@@ -46,13 +47,13 @@ function getSquareColor(value) {
 		return "magenta";
 		break;
 		case 5:
-		return "pink";
+		return "brown";
 		break;
 		case 6:
 		return "orange";
 		break;
 		case 7:
-		return "brown";
+		return "pink";
 		break;
 		default:
 		return "black";
@@ -77,6 +78,7 @@ function getSquareValue(x,y) {
 function initMines(x,y,m) {
 	mineLocations = [];
 	discovered = 0;
+	discovered_goal = (height*width)-parseInt(m);
 	var placedMines = 0;
 	while(placedMines < m) {
 		var mine = {x:Math.floor((Math.random() * x)), y:Math.floor((Math.random() * y))};
@@ -127,6 +129,18 @@ function discoverAllMines() {
 	$undiscovered.removeClass("undiscovered");
 }
 
+//You win
+function win() {
+	for(var i = 0 ; i < mineLocations.length ; i++) {
+		var m = mineLocations[i];
+		$square = $('#s'+m.x+"-"+m.y);
+		$square.removeClass("undiscovered");
+		$square.html('*');
+		$square.addClass("not-boom");
+	}
+	alert("＼(^o^)／ You win! ＼(^o^)／");
+}
+
 //Discovers the square
 function discover(x,y) {
 	$square = $('#s'+x+"-"+y);
@@ -151,6 +165,9 @@ function discover(x,y) {
 		else {
 			$square.css("color",getSquareColor(squareValue));
 			discovered++;
+			if(discovered==discovered_goal) {
+				win();
+			}
 		}
 	}
 }
