@@ -18,6 +18,18 @@ var customMines = 10;
 var mineLocations = [];
 var discovered = 0;
 
+var $mines_left;
+var minesLeft = 0;
+
+//Centers the view to the board
+function center() {
+	$('html, body').animate({
+		scrollTop: $("#minesweeper").offset().top - 25
+	}, 600, function(){
+		
+	});
+}
+
 //Returns the color for the discovered square
 function getSquareColor(value) {
 	switch (value) {
@@ -79,10 +91,17 @@ function initMines(x,y,m) {
 function buildBoard() {
 	var device_width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 	var device_height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
-	var size = (device_width > device_height) ? device_height/(parseInt(height)+3) : device_width/(parseInt(width)+1);
+	var size = (device_width > device_height) ? (device_height-100)/parseInt(height) : (device_width-100)/parseInt(width);
 	$minesweeper.empty();
+	minesLeft = mines;
 	$minesweeper.append("<table class=\"board-table\"></table>");
 	var $board_table = $(".board-table");
+	$board_table.append("<tr id=\"row-header\" height='"+50+"'></tr>");
+	var $header_row = $("#row-header");
+	$header_row.append("<td class='center' onclick='center()' height='"+50+"' colspan='"+parseInt(width/3)+"'>Center</td>");
+	$header_row.append("<td class='reset' onclick='buildBoard()' height='"+50+"' colspan='"+parseInt(width/3)+"'>Reset</td>");
+	$header_row.append("<td id='mines-left' height='"+50+"' colspan='"+(width-2*parseInt(width/3))+"'>Mines left: "+minesLeft+"</td>");
+	$mines_left = $("#mines-left");
 	for(var i = 0 ; i < height ; i++) {
 		$board_table.append("<tr id=\"row"+i+"\" height='"+size+"' width='"+size+"'></tr>");
 		var $board_row = $("#row"+i);

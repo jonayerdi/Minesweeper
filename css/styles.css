@@ -27,27 +27,6 @@ body {
     to {font-size: 24px;}
 }
 
-button.btn-play {
-	background: #CC55FF;
-	color: white;
-	font-size: 50px;
-	min-width: 100%;
-	border-radius: 12px;
-	border: #9922CC;
-	border-style: solid;
-	border-width: 3px;
-	border-bottom-width: 8px;
-}
-
-button.btn-play:hover {
-	text-shadow: 0px 0px 10px #FFF;
-}
-
-button.btn-play:active {
-	background: #AA33DD;
-	text-shadow: 0px 0px 10px #FFF;
-}
-
 .row {
 	margin: 20px 0px 50px 0px;
 }
@@ -88,6 +67,32 @@ th, td  {
 	border: 1px solid #777777;
 	background: #EEEEEE;
 }
+
+th, td.center  {
+	font-size: 20px;
+	background: #CCFFFF;
+}
+
+th, td.center:hover  {
+	background: #77DDDD;
+}
+
+th, td.reset  {
+	font-size: 20px;
+	background: #FFCCCC;
+}
+
+th, td.reset:hover  {
+	background: #FF8888;
+}
+
+th, td#mines-left  {
+	font-size: 18px;
+	background: #DDDDDD;
+	text-align: left;
+	padding: 0px 0px 0px 25px;
+}
+
 th, td.disabled  {
 	background: #CCCCCC;
 }

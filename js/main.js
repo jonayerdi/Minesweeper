@@ -76,8 +76,16 @@ $(document).ready(function() {
 	//
 	$(document).on("contextmenu", ".undiscovered", function(e){
 		sq = $(this);
-		if(sq.html()=='') sq.html('X');
-		else sq.html('');
+		if(sq.html()=='') {
+			sq.html('X');
+			minesLeft--;
+		}
+		else {
+			sq.html('');
+			minesLeft++;
+			
+		}
+		$mines_left.html("Mines left: "+minesLeft);
 		return false;
 	});
 	//Smooth scroll for anchor links
