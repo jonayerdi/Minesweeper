@@ -29,15 +29,15 @@ function applySettings(mode) {
 	$('#' + mode).toggleClass('depressed');
 	currentMode = mode;
 	
-	$lbWidth.prop('readOnly', false)
-	$lbHeight.prop('readOnly', false)
-	$lbMines.prop('readOnly', false)
+	$lbWidth.prop('readOnly', false);
+	$lbHeight.prop('readOnly', false);
+	$lbMines.prop('readOnly', false);
 	$lbWidth.val(width);
 	$lbHeight.val(height);
 	$lbMines.val(mines);
-	$lbWidth.prop('readOnly', mode!='custom')
-	$lbHeight.prop('readOnly', mode!='custom')
-	$lbMines.prop('readOnly', mode!='custom')
+	$lbWidth.prop('readOnly', mode!='custom');
+	$lbHeight.prop('readOnly', mode!='custom');
+	$lbMines.prop('readOnly', mode!='custom');
 }
 
 function checkSettings() {
@@ -76,7 +76,7 @@ $(document).ready(function() {
 	//
 	$(document).on("contextmenu", ".undiscovered", function(e){
 		sq = $(this);
-		if(sq.html()=='') {
+		if(sq.html()==='') {
 			sq.html('X');
 			minesLeft--;
 		}

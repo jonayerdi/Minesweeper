@@ -36,28 +36,20 @@ function getSquareColor(value) {
 	switch (value) {
 		case 1:
 		return "blue";
-		break;
 		case 2:
 		return "green";
-		break;
 		case 3:
 		return "red";
-		break;
 		case 4:
 		return "magenta";
-		break;
 		case 5:
 		return "brown";
-		break;
 		case 6:
 		return "orange";
-		break;
 		case 7:
 		return "pink";
-		break;
 		default:
 		return "black";
-		break;
 	}
 }
 
@@ -71,7 +63,7 @@ function getSquareValue(x,y) {
 			else surroundMines++;
 		}
 	}
-	return (surroundMines==0 ? '':surroundMines);
+	return (surroundMines===0 ? '':surroundMines);
 }
 
 //Creates m random positions within x and y
@@ -147,7 +139,7 @@ function discover(x,y) {
 	if($square.hasClass("undiscovered")) {
 		$square.removeClass("undiscovered");
 		//Discover surrounding squares if empty
-		if(getSquareValue(x,y)=='') {
+		if(getSquareValue(x,y)==='') {
 			for(var i = -1 ; i <=1 ; i++ ) {
 				for(var j = -1 ; j <= 1 ; j++ ) {
 					discover(x+i,y+j);
@@ -156,7 +148,7 @@ function discover(x,y) {
 		}
 		//Discover square
 		$square = $('#s'+x+"-"+y);
-		squareValue = getSquareValue(x,y);
+		var squareValue = getSquareValue(x,y);
 		$square.html(squareValue);
 		if(squareValue=='*') {
 			$square.addClass("boom");
@@ -165,7 +157,7 @@ function discover(x,y) {
 		else {
 			$square.css("color",getSquareColor(squareValue));
 			discovered++;
-			if(discovered==discovered_goal) {
+			if(discovered===discovered_goal) {
 				win();
 			}
 		}
