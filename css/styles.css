@@ -1,7 +1,22 @@
 body { 
 	padding-top: 30px;
-	background-color: #cbb7ff;
-	background-image: url("data:image/svg+xml,%3Csvg width='84' height='48' viewBox='0 0 84 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h12v6H0V0zm28 8h12v6H28V8zm14-8h12v6H42V0zm14 0h12v6H56V0zm0 8h12v6H56V8zM42 8h12v6H42V8zm0 16h12v6H42v-6zm14-8h12v6H56v-6zm14 0h12v6H70v-6zm0-16h12v6H70V0zM28 32h12v6H28v-6zM14 16h12v6H14v-6zM0 24h12v6H0v-6zm0 8h12v6H0v-6zm14 0h12v6H14v-6zm14 8h12v6H28v-6zm-14 0h12v6H14v-6zm28 0h12v6H42v-6zm14-8h12v6H56v-6zm0-8h12v6H56v-6zm14 8h12v6H70v-6zm0 8h12v6H70v-6zM14 24h12v6H14v-6zm14-8h12v6H28v-6zM14 8h12v6H14V8zM0 8h12v6H0V8z' fill='%23807ef7' fill-opacity='0.3' fill-rule='evenodd'/%3E%3C/svg%3E");
+	color: #AAAAAA;
+	text-shadow: 0px 0px 50px #FFF;
+	background-color: #000000;
+	background-image: url("data:image/svg+xml,%3Csvg width='84' height='48' viewBox='0 0 84 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h12v6H0V0zm28 8h12v6H28V8zm14-8h12v6H42V0zm14 0h12v6H56V0zm0 8h12v6H56V8zM42 8h12v6H42V8zm0 16h12v6H42v-6zm14-8h12v6H56v-6zm14 0h12v6H70v-6zm0-16h12v6H70V0zM28 32h12v6H28v-6zM14 16h12v6H14v-6zM0 24h12v6H0v-6zm0 8h12v6H0v-6zm14 0h12v6H14v-6zm14 8h12v6H28v-6zm-14 0h12v6H14v-6zm28 0h12v6H42v-6zm14-8h12v6H56v-6zm0-8h12v6H56v-6zm14 8h12v6H70v-6zm0 8h12v6H70v-6zM14 24h12v6H14v-6zm14-8h12v6H28v-6zM14 8h12v6H14V8zM0 8h12v6H0V8z' fill='%2340aff7' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+h1 {
+	font-size: 48px;
+}
+
+label {
+	font-size: 24px;
+}
+
+input.config-input {
+	font-size: 24px;
+	height: 48px;
 }
 
 #top {
@@ -15,7 +30,7 @@ body {
 
 @keyframes explode {
     from {background: #EEEEEE; color: black;}
-    to {background: #FF3030; color: white;}
+    to {background: #BB3030; color: white;}
 }
 
 @keyframes bigger {
@@ -53,7 +68,7 @@ body {
 }
 
 .boom {
-	background: #FF3030;
+	background: #BB3030;
 	color: white;
 	animation-name: explode;
 	animation-duration: 700ms;
@@ -69,47 +84,54 @@ table {
 }
 
 th, td  {
-	border: 1px solid #777777;
-	background: #EEEEEE;
+	color: #CCCCCC;
+	border: 3px solid #888;
+	background: #999999;
 }
 
 th, td.center  {
 	font-size: 20px;
-	background: #CCFFFF;
+	background: #005555;
 }
 
 th, td.center:hover  {
-	background: #77DDDD;
+	background: #008888;
+	text-shadow: 0px 0px 10px #000;
 }
 
 th, td.reset  {
 	font-size: 20px;
-	background: #FFCCCC;
+	background: #771100;
 }
 
 th, td.reset:hover  {
-	background: #FF8888;
+	background: #BB2200;
+	text-shadow: 0px 0px 10px #000;
 }
 
 th, td#mines-left  {
 	font-size: 18px;
-	background: #DDDDDD;
+	background: #252525;
 	text-align: left;
 	padding: 0px 0px 0px 25px;
 }
 
 th, td.disabled  {
-	background: #CCCCCC;
+	background: #333;
+}
+
+th, td.discovered  {
+	text-shadow: 0px 0px 10px #FFF;
 }
 
 th, td.undiscovered  {
-	background: #CCCCCC;
+	background: #444444;
 }
 
 th, td.undiscovered:hover  {
-	background-color: #AAAAAA
+	background-color: #555599
 }
 
 th, td.undiscovered:active  {
-	background-color: #AAAAFF
+	background-color: #6666AA
 }
