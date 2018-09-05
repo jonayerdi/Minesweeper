@@ -1,4 +1,3 @@
-
 var $minesweeper;
 
 var $lbWidth;
@@ -138,6 +137,7 @@ function discover(x,y) {
 	$square = $('#s'+x+"-"+y);
 	if($square.hasClass("undiscovered")) {
 		$square.removeClass("undiscovered");
+		$square.addClass("discovered");
 		//Discover surrounding squares if empty
 		if(getSquareValue(x,y)==='') {
 			for(var i = -1 ; i <=1 ; i++ ) {
@@ -155,9 +155,9 @@ function discover(x,y) {
 			discoverAllMines();
 		}
 		else {
-			$square.css("color",getSquareColor(squareValue));
+			$square.css("color", getSquareColor(squareValue));
 			discovered++;
-			if(discovered===discovered_goal) {
+			if(discovered === discovered_goal) {
 				win();
 			}
 		}
